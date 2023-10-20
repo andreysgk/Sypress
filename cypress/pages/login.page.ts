@@ -12,6 +12,10 @@ class LoginPage extends BasePage {
   get loginButton() {
     return cy.xpath("//*[@name='login']");
   }
+
+  get errorField(){
+    return cy.get('.woocommerce-error');
+  }
 }
 
 export default new LoginPage();

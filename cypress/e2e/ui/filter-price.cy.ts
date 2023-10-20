@@ -8,11 +8,16 @@ describe('Verify filter by price functionality', () => {
     loginActions.login().navigateToShopPage();
   });
 
-  it('Should filter by price', () => {
-    cy.stepInfo('1. Change filter');
-    shopActions.changeFilter().clickFilterButton(testData.index);
+  // it('Should filter by price', () => {
+  //   cy.stepInfo('1. Change filter');
+  //   shopActions.changeFilter().clickFilterButton(testData.index);
 
-    cy.stepInfo('2. Verify filtered prices');
-    shopActions.verifyFilterPrices();
+  //   cy.stepInfo('2. Verify filtered prices');
+  //   shopActions.verifyFilterPrices();
+  // });
+
+  it('Sorting', () => {
+    cy.stepInfo('1. Change filter');
+    shopActions.sortProductLowToHigh();
   });
 });

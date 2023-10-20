@@ -19,8 +19,23 @@ class LoginAction extends BaseUIActions<typeof loginPage> {
 
   login(username: string = Cypress.env('USERNAME'), password = Cypress.env('PASSWORD')): this {
     cy.visit('/');
-    this.navigateToLoginPage().enterUsername(username).enterPassword(password).clickLoginButton();
+    this
+    .navigateToLoginPage()
+    .enterUsername(username)
+    .enterPassword(password)
+    .clickLoginButton();
     cy.contains(username.split('@')[0]).should('be.visible');
+    return this;
+  }
+
+  unknownUser(unknownUser: string = Cypress.env('UNKNOWN_USERNAME'), password = Cypress.env('PASSWORD')): this {
+    cy.visit('/');
+    this
+    .navigateToLoginPage()
+    .enterUsername(unknownUser)
+    .enterPassword(password)
+    .clickLoginButton();
+    cy.get('.woocommerce-error').should('be.visible');
     return this;
   }
 }

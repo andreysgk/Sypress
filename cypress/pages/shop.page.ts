@@ -16,6 +16,14 @@ class ShopPage extends BasePage {
   get allSalePrices() {
     return cy.get('ins > .woocommerce-Price-amount');
   }
+
+  get sort() {
+    return cy.get('.orderby');
+  }
+
+  get sortLowToHigh() {
+    return cy.get('.orderby > option[value="price"]');
+  }
 }
 
 export default new ShopPage();
