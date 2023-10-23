@@ -37,13 +37,18 @@ class ShopActions extends BaseUIActions<typeof shopPage> {
   }
 
   clickSort(): this {
-    cy.get('.orderby').select('price');
+    this.page.sort.select('price');
     return this;
   }
 
   sortProductLowToHigh(): this {
     this.clickSort();
     cy.contains('Sort by price: low to high').should('be.visible');
+    return this;
+  }
+
+  productCategory(): this {
+    this.page.returnProduct('JavaScript').click();
     return this;
   }
 }

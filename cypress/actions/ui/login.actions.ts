@@ -19,8 +19,7 @@ class LoginAction extends BaseUIActions<typeof loginPage> {
 
   login(username: string = Cypress.env('USERNAME'), password = Cypress.env('PASSWORD')): this {
     cy.visit('/');
-    this
-    .navigateToLoginPage()
+    this.navigateToLoginPage()
     .enterUsername(username)
     .enterPassword(password)
     .clickLoginButton();
@@ -30,12 +29,11 @@ class LoginAction extends BaseUIActions<typeof loginPage> {
 
   unknownUser(unknownUser: string = Cypress.env('UNKNOWN_USERNAME'), password = Cypress.env('PASSWORD')): this {
     cy.visit('/');
-    this
-    .navigateToLoginPage()
+    this.navigateToLoginPage()
     .enterUsername(unknownUser)
     .enterPassword(password)
     .clickLoginButton();
-    cy.get('.woocommerce-error').should('be.visible');
+    this.page.errorField.should('be.visible');
     return this;
   }
 }

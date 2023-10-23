@@ -21,8 +21,21 @@ class ShopPage extends BasePage {
     return cy.get('.orderby');
   }
 
-  get sortLowToHigh() {
-    return cy.get('.orderby > option[value="price"]');
+  get productLocator(){
+    return cy.get('cat-item cat-item-24');
+  }
+
+  returnProduct(name) {
+  switch (name) {
+    case "android":
+       return cy.get('li.cat-item-24 a');
+    case "HTML":
+       return cy.get('li.cat-item-19 a');
+    case "JavaScript":
+       return cy.get('li.cat-item-21 a');
+    case "selenium":
+       return cy.get('li.cat-item-17 a');
+    }
   }
 }
 

@@ -19,5 +19,10 @@ describe('Verify filter by price functionality', () => {
   it('Sorting', () => {
     cy.stepInfo('1. Change filter');
     shopActions.sortProductLowToHigh();
+  }); 
+
+  it('FilterProduct', () => {
+    cy.stepInfo('1. Change PRODUCT CATEGORIES');
+    shopActions.productCategory();
   });
 });
